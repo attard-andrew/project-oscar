@@ -61,8 +61,5 @@ for imageHash in db.keys():
         shutil.copy(image, pathName)
 
 
-
-
-
 # close the shelf database
 db.close
