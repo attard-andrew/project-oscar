@@ -1,10 +1,6 @@
 #! python3
 # main.py - Primary script for project Oscar, a tool for identifying and grouping
-<<<<<<< HEAD
-# 			similar images locally
-=======
 # 			    similar images locally
->>>>>>> e8c2b2f92f4db1f1c2a7543ce9bed4e49997f557
 
 from PIL import Image
 import imagehash
@@ -48,26 +44,5 @@ for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
 for item in db.keys():
     print(item + ': ' + str(db[item]))
 
-<<<<<<< HEAD
-'''
-    For each hash (key) in the database
-        create folder using hash (key) as name
-        folder = new folder path
-        for each file directory (values) in each hash (key)
-            copy file to folder
-           
-'''
-for imageHash in db.keys():
-    folderName = imageHash
-    pathName = os.getcwd()
-    os.mkdir(pathName + '\\' + folderName)
-    pathName = pathName + '\\' + folderName
-    fileList = db[imageHash]
-    for image in fileList:
-        shutil.copy(image, pathName)
-
-
-=======
->>>>>>> e8c2b2f92f4db1f1c2a7543ce9bed4e49997f557
 # close the shelf database
 db.close
