@@ -1,6 +1,10 @@
 #! python3
 # main.py - Primary script for project Oscar, a tool for identifying and grouping
+<<<<<<< HEAD
 # 			similar images locally
+=======
+# 			    similar images locally
+>>>>>>> e8c2b2f92f4db1f1c2a7543ce9bed4e49997f557
 
 from PIL import Image
 import imagehash
@@ -12,8 +16,8 @@ import os
 import shutil
 
 
-# construct the argument parse
-ap = argparse.ArgumentParser()
+# Create the argument parser object
+ap = argparse.ArgumentParser(description='Parse source directory and shelf arguments')
 ap.add_argument("-d", "--dataset", required = True,
     help = "path to input dataset of images")
 ap.add_argument("-s", "--shelve", required = True,
@@ -44,6 +48,7 @@ for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
 for item in db.keys():
     print(item + ': ' + str(db[item]))
 
+<<<<<<< HEAD
 '''
     For each hash (key) in the database
         create folder using hash (key) as name
@@ -62,5 +67,7 @@ for imageHash in db.keys():
         shutil.copy(image, pathName)
 
 
+=======
+>>>>>>> e8c2b2f92f4db1f1c2a7543ce9bed4e49997f557
 # close the shelf database
 db.close
