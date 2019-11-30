@@ -10,6 +10,9 @@ import argparse
 import shelve
 import glob
 import pprint
+import os
+import shutil
+
 
 # construct the argument parse
 ap = argparse.ArgumentParser()
@@ -42,8 +45,26 @@ for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
 for item in db.keys():
     print(item + ': ' + str(db[item]))
 
+'''
+    For each hash (key) in the database
+        create folder using hash (key) as name
+        folder = new folder path
+        for each file directory (values) in each hash (key)
+            copy file to folder
+           
+'''
+for imageHash in db.keys():
+    folderName = imageHash
+    pathName = os.getcwd()
+    os.mkdir(pathName + '\\' + folderName)
+    pathName = pathName + '\\' + folderName
+    fileList = db[imageHash]
+    for image in fileList:
+        shutil.copy(image, pathName)
+
+
+
+
+
 # close the shelf database
 db.close
-
-
-    
