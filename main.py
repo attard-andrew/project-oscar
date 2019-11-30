@@ -2,8 +2,6 @@
 # main.py - Primary script for project Oscar, a tool for identifying and grouping
 # 			similar images locally
 
-# imports
-
 from PIL import Image
 import imagehash
 import argparse
