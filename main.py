@@ -27,6 +27,7 @@ db = shelve.open(args["shelve"], writeback = True)
 
 # loop over the image dataset
 for imagePath in glob.glob(args["dataset"] + "/*.jpg"):
+
     # C:/images/*.jpg
     # load the image and compute the difference hash
     image = Image.open(imagePath)
