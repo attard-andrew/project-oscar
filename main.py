@@ -10,17 +10,19 @@ import glob
 import pprint
 import os
 import shutil
-
+import sys
 
 # Create the argument parser object
-ap = argparse.ArgumentParser(description='Parse source directory and shelf arguments')
-ap.add_argument("-d", "--dataset", required = True,
-    help = "path to input dataset of images")
-ap.add_argument("-s", "--shelve", required = True,
-    help = "output shelve database")
+def parse_args(arguments):
+    ap = argparse.ArgumentParser(description='Parse source directory and shelf arguments')
+    ap.add_argument("-d", "--dataset", required = True,
+        help = "path to input dataset of images")
+    ap.add_argument("-s", "--shelve", required = True,
+        help = "output shelve database")
+    # parse the agruments
+    return ap.parse_args(arguments)#vars(ap.parse_args())
 
-# parse the agruments
-args = vars(ap.parse_args())
+args = vars(parse_args(sys.argv[1:]))
 
 # open the shelve database
 db = shelve.open(args["shelve"], writeback = True)
